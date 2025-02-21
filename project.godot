@@ -11,13 +11,23 @@ config_version=5
 [application]
 
 config/name="Hide The Body"
-run/main_scene="res://Scenes/Main Game/Main menu.tscn"
+run/main_scene="res://Scenes/UI/Settings.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Levels="*res://Scripts/UI/Levels/levels.gd"
+GameSettings="*res://Scripts/Game/Game_settings.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [input]
 

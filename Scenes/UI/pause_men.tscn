@@ -187,7 +187,7 @@ size_flags_horizontal = 4
 [node name="Resume" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Resume HAHA"
+text = "Resume"
 
 [node name="Options2" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -209,5 +209,5 @@ libraries = {
 "": SubResource("AnimationLibrary_ym3ro")
 }
 
-[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_quit_pressed"]

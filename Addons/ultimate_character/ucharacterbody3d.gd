@@ -40,7 +40,7 @@ class_name UCharacterBody3D
 ## The InputMap action string to be used for jumping
 @export var JUMP : String = "action_jump"
 ## A default value of 0.4 is a good starting point, stay between 0.01 and 1.0
-@export var MOUSE_SENSITIVITY : float = 0.4
+@export var MOUSE_SENSITIVITY : float = GameSettings.mouse_sensetiv
 
 
 
