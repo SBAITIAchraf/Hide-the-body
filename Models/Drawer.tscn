@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://drwi8mpeuxpsm"]
+
+[ext_resource type="PackedScene" uid="uid://ckb0maqussyeu" path="res://Models/Drawer_full.blend" id="1_nrh3o"]
+
+[node name="Drawer" type="Node3D"]
+
+[node name="Drawer_full" parent="." instance=ExtResource("1_nrh3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.522501, 0, 2.18408)

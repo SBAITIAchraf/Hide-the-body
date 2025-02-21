@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://wb7bx6k5bb0h"]
+
+[ext_resource type="Script" path="res://Scripts/Inspector.gd" id="1_7e4xh"]
+[ext_resource type="Script" path="res://Scripts/Look_evidence.gd" id="2_itafv"]
+[ext_resource type="PackedScene" uid="uid://btidm1ynoaqmh" path="res://Models/inspector_model.tscn" id="3_yqn4i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4t3v4"]
+radius = 0.246898
+height = 1.78
+
+[node name="Inspector" type="CharacterBody3D"]
+script = ExtResource("1_7e4xh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, 0)
+shape = SubResource("CapsuleShape3D_4t3v4")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65288, 0.0508761)
+
+[node name="Eyes" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.010174, 0.086867)
+script = ExtResource("2_itafv")
+
+[node name="Detector" type="RayCast3D" parent="Head/Eyes"]
+target_position = Vector3(0, 0, 0)
+collision_mask = 13
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="look_around" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Inspector_Model" parent="." instance=ExtResource("3_yqn4i")]
+transform = Transform3D(0.14, 0, 0, 0, 0.14, 0, 0, 0, 0.14, 0, 0.767643, 0)
+
+[connection signal="timeout" from="look_around" to="." method="_on_look_around_timeout"]

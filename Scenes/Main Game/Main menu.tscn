@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://d7o7pekdr2kl"]
+
+[ext_resource type="PackedScene" uid="uid://wb7bx6k5bb0h" path="res://Scenes/Inspector.tscn" id="1_bigle"]
+[ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="1_eer2f"]
+[ext_resource type="Texture2D" uid="uid://bvlp434ts1jeh" path="res://Addons/kenney_prototype_textures/purple/texture_05.png" id="2_6qgkt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv51v"]
+bg_color = Color(0.6, 0.6, 0.6, 0.701961)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m15rr"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_veg0p"]
+albedo_texture = ExtResource("2_6qgkt")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0p0yd"]
+material = SubResource("StandardMaterial3D_veg0p")
+size = Vector3(20, 1, 20)
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eer2f")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -98.0
+offset_right = 98.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kv51v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -73.0
+offset_right = 73.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Start" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start"
+
+[node name="Start2" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Levels"
+
+[node name="Options" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="Button3" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994202, 0.107531, 0, -0.107531, 0.994202, 0, 0.942701, 1.40561)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+transform = Transform3D(0.989734, -0.140132, 0.0281054, 0, 0.196648, 0.980474, -0.142923, -0.970408, 0.194629, -4.66979, 5.84578, 0)
+
+[node name="Inspector" parent="." instance=ExtResource("1_bigle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0989835, 1.14919, -1.17267)
+
+[node name="Ground2" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="Ground2"]
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2/Ground"]
+shape = SubResource("BoxShape3D_m15rr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216715, -0.122783, -0.289191)
+mesh = SubResource("BoxMesh_0p0yd")
+
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Start" to="Control" method="_on_start_pressed"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwjwed0itj7r"]
+
+[ext_resource type="Texture2D" uid="uid://guusdkh0d6il" path="res://Addons/kenney_prototype_textures/orange/texture_01.png" id="1_td46d"]
+[ext_resource type="Shader" path="res://Materials/Outline.gdshader" id="2_yjgwr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a3vbf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdrjp"]
+size = Vector3(0.22, 0.22, 0.22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rutxk"]
+size = Vector3(0.22, 0.22, 0.22)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de6w4"]
+albedo_texture = ExtResource("1_td46d")
+uv1_triplanar = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3x3h"]
+render_priority = 0
+shader = ExtResource("2_yjgwr")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/size = 1.05
+
+[node name="Box3" type="RigidBody3D" groups=["Pickable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.333679, 0.728381, -0.81)
+collision_layer = 8
+collision_mask = 13
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_a3vbf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hdrjp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("BoxMesh_rutxk")
+surface_material_override/0 = SubResource("StandardMaterial3D_de6w4")
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_rutxk")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("ShaderMaterial_q3x3h")
+
+[node name="Detection points" type="Node3D" parent="."]
+
+[node name="Marker3D10" type="Marker3D" parent="Detection points"]
+transform = Transform3D(0.740208, 0, 0, 0, 0.782427, 0, 0, 0, 0.873403, 0, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="Detection points"]
+transform = Transform3D(0.740208, 0, 0, 0, 0.782427, 0, 0, 0, 0.873403, 0.0866335, -0.0805771, -0.0956212)
+
+[node name="Marker3D4" type="Marker3D" parent="Detection points"]
+transform = Transform3D(0.740208, 0, 0, 0, 0.782427, 0, 0, 0, 0.873403, 0.0866335, -0.0785376, 0.0973085)
+
+[node name="Marker3D5" type="Marker3D" parent="Detection points"]
+transform = Transform3D(0.740208, 0, 0, 0, 0.782427, 0, 0, 0, 0.873403, 0.0866335, 0.0922566, 0.0973085)
+
+[node name="Marker3D6" type="Marker3D" parent="Detection points"]
+transform = Transform3D(0.740208, 0, 0, 0, 0.782427, 0, 0, 0, 0.873403, 0.0866335, 0.0922566, -0.0933448)
+
+[node name="Marker3D7" type="Marker3D" parent="Detection points"]
+transform = Transform3D(0.740208, 0, 0, 0, 0.782427, 0, 0, 0, 0.873403, -0.0787404, 0.0922566, 0.0973085)
+
+[node name="Marker3D3" type="Marker3D" parent="Detection points"]
+transform = Transform3D(0.740208, 0, 0, 0, 0.782427, 0, 0, 0, 0.873403, -0.0770281, -0.0843801, 0.0973085)
+
+[node name="Marker3D8" type="Marker3D" parent="Detection points"]
+transform = Transform3D(0.740208, 0, 0, 0, 0.782427, 0, 0, 0, 0.873403, -0.0770281, 0.0920141, -0.100104)
+
+[node name="Marker3D9" type="Marker3D" parent="Detection points"]
+transform = Transform3D(0.740208, 0, 0, 0, 0.782427, 0, 0, 0, 0.873403, -0.0783579, -0.0822622, -0.0987056)

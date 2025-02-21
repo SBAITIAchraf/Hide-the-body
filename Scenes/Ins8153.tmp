@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://wb7bx6k5bb0h"]
+
+[ext_resource type="Script" path="res://Scripts/Inspector.gd" id="1_7e4xh"]
+[ext_resource type="Script" path="res://Scripts/Look_evidence.gd" id="2_itafv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4t3v4"]
+height = 1.78
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oria7"]
+height = 1.78
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jduyq"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ug23s"]
+material = SubResource("StandardMaterial3D_jduyq")
+size = Vector3(0.535, 0.11, 0.535)
+
+[node name="Inspector" type="CharacterBody3D"]
+script = ExtResource("1_7e4xh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, 0)
+shape = SubResource("CapsuleShape3D_4t3v4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, 0)
+mesh = SubResource("CapsuleMesh_oria7")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.602, 0)
+
+[node name="Eyes" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.183153, 0.341248)
+script = ExtResource("2_itafv")
+max_see_distance = 500.0
+
+[node name="Detector" type="RayCast3D" parent="Head/Eyes"]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="look_around" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42088, 0.327501)
+mesh = SubResource("BoxMesh_ug23s")
+
+[connection signal="timeout" from="look_around" to="." method="_on_look_around_timeout"]
