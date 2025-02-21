@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://blk4kxdgtcntm"]
+[gd_scene load_steps=7 format=3 uid="uid://blk4kxdgtcntm"]
 
 [ext_resource type="Script" path="res://Scripts/UI/level_end_ui.gd" id="1_we4o2"]
 
@@ -9,6 +9,17 @@ bg_color = Color(0.941365, 0.941365, 0.941365, 1)
 bg_color = Color(0.641934, 0.641934, 0.641934, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnhoi"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.321569, 0.329412, 0.329412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7nmq"]
 content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_right = 5.0
@@ -31,6 +42,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="EndLevel" type="Control"]
+process_mode = 3
 top_level = true
 layout_mode = 3
 anchors_preset = 15
@@ -95,7 +107,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 44
 text = "sus level : 80%"
 
-[node name="NextLevel" type="Button" parent="Panel/Panel"]
+[node name="MainMenu" type="Button" parent="Panel/Panel"]
 layout_mode = 2
 offset_left = 24.0
 offset_top = 290.0
@@ -107,7 +119,19 @@ theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_dnhoi")
 text = "Menu"
 
-[node name="MainMenu" type="Button" parent="Panel/Panel"]
+[node name="MainMenu2" type="Button" parent="Panel/Panel"]
+layout_mode = 2
+offset_left = 216.0
+offset_top = 290.0
+offset_right = 340.0
+offset_bottom = 357.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_j7nmq")
+text = "Restart"
+
+[node name="NextLevel" type="Button" parent="Panel/Panel"]
 layout_mode = 2
 offset_left = 440.0
 offset_top = 285.0
@@ -119,4 +143,6 @@ theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_x7o8k")
 text = "Next"
 
+[connection signal="pressed" from="Panel/Panel/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Panel/Panel/MainMenu2" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Panel/Panel/NextLevel" to="." method="_on_next_level_pressed"]

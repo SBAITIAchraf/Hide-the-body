@@ -21,7 +21,6 @@ crouch_speed = 0.0
 slide_speed = 0.0
 standing_height = 1.78
 crouching_height = 1.78
-JUMP = "jump"
 MOUSE_SENSITIVITY = 0.1
 
 [node name="CollisionShapeNormal2" type="CollisionShape3D" parent="."]

@@ -5,6 +5,8 @@ extends CharacterBody3D
 @export var accel : float = 10.0
 @export var nav_path : Node
 @export var evidences : Node
+@export var end_level_screen : Control
+
 
 @onready var model = $Inspector_Model
 @onready var look_timer : Timer = $look_around
@@ -20,6 +22,8 @@ var look : bool
 var direction_angle : float
 
 func _ready():
+	if end_level_screen:
+		end_level_screen.hide()
 	if nav_path:
 		nav_points = nav_path.get_children()
 		i = 0
@@ -53,11 +57,10 @@ func _physics_process(delta):
 					velocity.x = move_toward(velocity.x, 0, speed)
 					velocity.z = move_toward(velocity.z, 0, speed)
 					next_nav_point = null
-					if Levels.lvl < len(Levels.lvls)-1:
-						Levels.lvl += 1
-					else:
-						Levels.lvl = 0
-					get_tree().change_scene_to_file(Levels.lvls[Levels.lvl])
+					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+					if end_level_screen:
+						end_level_screen.show()
+						get_tree().paused = true
 				
 			else:
 				direction = nav.get_next_path_position() - global_position

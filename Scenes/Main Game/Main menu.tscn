@@ -74,7 +74,7 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Options"
 
-[node name="Button3" type="Button" parent="Control/Panel/VBoxContainer"]
+[node name="Exit" type="Button" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Exit"
@@ -101,3 +101,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216715, -0.122783, -0.2891
 mesh = SubResource("BoxMesh_0p0yd")
 
 [connection signal="pressed" from="Control/Panel/VBoxContainer/Start" to="Control" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Exit" to="Control" method="_on_exit_pressed"]
