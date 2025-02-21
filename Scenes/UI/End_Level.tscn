@@ -119,7 +119,7 @@ theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_dnhoi")
 text = "Menu"
 
-[node name="MainMenu2" type="Button" parent="Panel/Panel"]
+[node name="Restart" type="Button" parent="Panel/Panel"]
 layout_mode = 2
 offset_left = 216.0
 offset_top = 290.0
@@ -144,5 +144,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_x7o8k")
 text = "Next"
 
 [connection signal="pressed" from="Panel/Panel/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="Panel/Panel/MainMenu2" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Panel/Panel/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Panel/Panel/NextLevel" to="." method="_on_next_level_pressed"]

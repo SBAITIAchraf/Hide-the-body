@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnqf18ushkpmm"]
+[gd_scene load_steps=6 format=3 uid="uid://dnqf18ushkpmm"]
 
 [ext_resource type="Script" path="res://Addons/ultimate_character/ucharacterbody3d.gd" id="1_h3txv"]
 [ext_resource type="Script" path="res://Scripts/reticle.gd" id="2_e260r"]
+[ext_resource type="PackedScene" uid="uid://cmag2f3y6folx" path="res://Scenes/UI/pause_men.tscn" id="3_54a3g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4t3v4"]
 height = 1.78
@@ -43,7 +44,7 @@ collision_mask = 12
 [node name="Hand" type="Marker3D" parent="Head2/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.20205)
 
-[node name="UserInterface" type="Control" parent="."]
+[node name="Crosshair" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Reticle" type="CenterContainer" parent="UserInterface"]
+[node name="Reticle" type="CenterContainer" parent="Crosshair"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -63,3 +64,5 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(20, 20)
 script = ExtResource("2_e260r")
+
+[node name="Pause_men" parent="." instance=ExtResource("3_54a3g")]

@@ -42,6 +42,8 @@ class_name UCharacterBody3D
 ## A default value of 0.4 is a good starting point, stay between 0.01 and 1.0
 @export var MOUSE_SENSITIVITY : float = 0.4
 
+
+
 var is_walking = false
 var is_sprinting = false
 var is_crouching = false
