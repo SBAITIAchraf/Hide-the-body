@@ -93,7 +93,7 @@ func drop_object():
 		var b = hand.global_transform.origin
 		picked_object.apply_central_impulse((b-a)*10)'
 		var pickable_mesh : MeshInstance3D = picked_object.get_node("Outline")	
-		if pickable_mesh:
+		if pickable_mesh && !picked_object.is_in_group("Evidence"):
 			pickable_mesh.visible = false
 		picked_object = null
 		has_grabbed = false
@@ -192,6 +192,9 @@ func _input(event):
 			grab_object()
 		else:
 			drop_object()
+
+func _process(delta):
+	MOUSE_SENSITIVITY = GameSettings.mouse_sensetiv
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():
@@ -318,7 +321,7 @@ func _physics_process(delta):
 						pickable_mesh.visible = true
 				if last_grab_detected != null && last_grab_detected.is_in_group("Pickable"):
 					var pickable_mesh : MeshInstance3D = last_grab_detected.get_node("Outline")
-					if pickable_mesh:
+					if pickable_mesh && !last_grab_detected.is_in_group("Evidence"):
 						pickable_mesh.visible = false
 			
 			

@@ -1,0 +1,148 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdah4ibcienjl"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Succeed_Level_ui.gd" id="1_an48x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81fjn"]
+bg_color = Color(0.941365, 0.941365, 0.941365, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6yjp"]
+bg_color = Color(0.641934, 0.641934, 0.641934, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnhoi"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.321569, 0.329412, 0.329412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7nmq"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.321569, 0.329412, 0.329412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7o8k"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0311972, 0.885417, 0.344646, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="SuccedLevel" type="Control"]
+process_mode = 3
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_an48x")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -682.0
+offset_top = -429.0
+offset_right = 682.0
+offset_bottom = 429.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_81fjn")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -619.0
+offset_top = -385.0
+offset_right = 619.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n6yjp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="Result" type="Label" parent="Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 135
+text = "SUCCESS!"
+
+[node name="Control" type="MarginContainer" parent="Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 115
+
+[node name="Sus level" type="Label" parent="Panel2/MarginContainer/VBoxContainer/Control"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 104
+text = "No evidence found"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+theme_override_styles/normal = SubResource("StyleBoxFlat_dnhoi")
+text = "Menu"
+
+[node name="Control2" type="Control" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Restart" type="Button" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+theme_override_styles/normal = SubResource("StyleBoxFlat_j7nmq")
+text = "Restart"
+
+[node name="Control" type="Control" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextLevel" type="Button" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+theme_override_styles/normal = SubResource("StyleBoxFlat_x7o8k")
+text = "Next"
+
+[connection signal="pressed" from="Panel2/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Panel2/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel2/MarginContainer/VBoxContainer/HBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]

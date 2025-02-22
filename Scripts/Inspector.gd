@@ -5,12 +5,14 @@ extends CharacterBody3D
 @export var accel : float = 10.0
 @export var nav_path : Node
 @export var evidences : Node
-@export var end_level_screen : Control
+@export var fail_level_screen : Control
+@export var succeed_level_screen : Control
 
 
 @onready var model = $Inspector_Model
 @onready var look_timer : Timer = $look_around
 @onready var nav : NavigationAgent3D = $NavigationAgent3D
+
 
 var animplayer : AnimationPlayer
 var nav_points : Array[Node]
@@ -20,10 +22,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var i : int
 var look : bool
 var direction_angle : float
-
+var evidence_deteced : bool
 func _ready():
-	if end_level_screen:
-		end_level_screen.hide()
+	evidence_deteced = false
+	if fail_level_screen:
+		fail_level_screen.hide()
+	if succeed_level_screen:
+		succeed_level_screen.hide()
 	if nav_path:
 		nav_points = nav_path.get_children()
 		i = 0
@@ -58,9 +63,13 @@ func _physics_process(delta):
 					velocity.z = move_toward(velocity.z, 0, speed)
 					next_nav_point = null
 					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-					if end_level_screen:
-						end_level_screen.show()
-						get_tree().paused = true
+					if evidence_deteced:
+						if fail_level_screen:
+							fail_level_screen.show()
+					else:
+						if succeed_level_screen:
+							succeed_level_screen.show()
+					get_tree().paused = true
 				
 			else:
 				direction = nav.get_next_path_position() - global_position

@@ -30,7 +30,7 @@ func _physics_process(delta):
 		for point in points:
 			if can_see_evidence(evid, point):
 				detected_evid.append(evid)
-				print("EVIDENCE!")
+				inspector.evidence_deteced = true
 		
 	
 func can_see_evidence(evid : Node, point : Node) -> bool:

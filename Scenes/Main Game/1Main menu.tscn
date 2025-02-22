@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://d7o7pekdr2kl"]
+
+[ext_resource type="PackedScene" uid="uid://bh0vx6b3vs8oe" path="res://Scenes/UI/Main_Menu_UI.tscn" id="1_qknwo"]
+[ext_resource type="PackedScene" uid="uid://wb7bx6k5bb0h" path="res://Scenes/Inspector.tscn" id="2_khg6r"]
+[ext_resource type="Texture2D" uid="uid://bvlp434ts1jeh" path="res://Addons/kenney_prototype_textures/purple/texture_05.png" id="3_tfnal"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m15rr"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_veg0p"]
+albedo_texture = ExtResource("3_tfnal")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0p0yd"]
+material = SubResource("StandardMaterial3D_veg0p")
+size = Vector3(20, 1, 20)
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="Menu" parent="." instance=ExtResource("1_qknwo")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994202, 0.107531, 0, -0.107531, 0.994202, 0, 0.942701, 1.40561)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+transform = Transform3D(0.989734, -0.140132, 0.0281054, 0, 0.196648, 0.980474, -0.142923, -0.970408, 0.194629, -4.66979, 5.84578, 0)
+
+[node name="Inspector" parent="." instance=ExtResource("2_khg6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0989835, 1.14919, -1.17267)
+
+[node name="Ground2" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="Ground2"]
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2/Ground"]
+shape = SubResource("BoxShape3D_m15rr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216715, -0.122783, -0.289191)
+mesh = SubResource("BoxMesh_0p0yd")

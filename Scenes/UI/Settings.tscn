@@ -98,7 +98,7 @@ text = "Screen Mode"
 
 [node name="ScreenMode" type="OptionButton" parent="Firs_page/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 45
 item_count = 2
 selected = 0
 popup/item_0/text = "Fullscreen"
@@ -113,7 +113,7 @@ text = "Screen Resolution"
 
 [node name="ScreenResolution" type="OptionButton" parent="Firs_page/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 45
 item_count = 5
 selected = 0
 popup/item_0/text = "1920x1080"

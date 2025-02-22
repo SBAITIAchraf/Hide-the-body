@@ -16,11 +16,12 @@ func _ready():
 			button.text = "Level " + str(i)
 			i += 1
 			LevelList.add_child(button)
-			button.pressed.connect(_on_button_pressed.bind(Levels.lvls[j]))
+			button.pressed.connect(_on_button_pressed.bind(j, Levels.lvls[j]))
 
 
-func _on_button_pressed(scene_path: String):
+func _on_button_pressed(j: int,scene_path: String):
 	# Loads/changes to the scene associated with the path
+	Levels.lvl = j
 	get_tree().change_scene_to_file(scene_path)
 
 

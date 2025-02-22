@@ -20,6 +20,7 @@ func _on_exit_pressed():
 
 
 func _on_options_pressed():
+	first_page.hide()
 	settings.show()
 
 

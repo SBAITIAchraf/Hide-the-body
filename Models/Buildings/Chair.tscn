@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://fh7n2aludrp6"]
+
+[ext_resource type="PackedScene" uid="uid://b5ayk1icpi8rr" path="res://Models/Buildings/Chair_fisics.tscn" id="1_vk24h"]
+
+[node name="Chair" type="Node3D"]
+
+[node name="RootNode" parent="." instance=ExtResource("1_vk24h")]
