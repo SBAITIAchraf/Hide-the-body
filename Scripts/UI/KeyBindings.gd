@@ -38,8 +38,37 @@ func _create_action_list():
 		else:
 			input_action.text = ""
 		action_list.add_child(button)
+		button.pressed.connect(_on_input_button_pressed.bind(button, action))
 
+func _on_input_button_pressed(button, action):
+	if !is_remapping:
+		is_remapping = true
+		action_to_remap = action
+		remappin_button = button
+		button.find_child("Action Input").text = "Press Key to bind..."
+		
+func _input(event):
+	if is_remapping:
+		if (event is InputEventKey || (event is InputEventMouseButton && event.is_pressed())):
+			if event is InputEventMouseButton && event.double_click:
+				event.double_click = false
+			
+			InputMap.action_erase_events(action_to_remap)
+			InputMap.action_add_event(action_to_remap, event)
+			_update_action_list(remappin_button, event)
+			is_remapping = false
+			action_to_remap = null
+			remappin_button = null 
+			
+			accept_event()
+			
+func _update_action_list(button, event):
+	button.find_child("Action Input").text = event.as_text().trim_suffix(" (Physical)")
 
 func _on_close_pressed():
 	get_parent().first_page.show()
 	hide()
+
+
+func _on_default_pressed():
+	_create_action_list()
