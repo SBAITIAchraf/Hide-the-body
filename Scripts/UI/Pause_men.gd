@@ -1,8 +1,10 @@
 extends Control
 
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
+@onready var settings = $Settings
 
 func _ready():
+	settings.hide()
 	hide()
 	anim_player.play("RESET")
 
@@ -34,3 +36,12 @@ func _on_quit_pressed():
 
 func _process(delta):
 	testEsc()
+
+
+func _on_options_pressed():
+	settings.show()
+
+
+func _on_main_menu_pressed():
+	Levels.lvl = 0
+	get_tree().change_scene_to_file(Levels.lvls[Levels.lvl])

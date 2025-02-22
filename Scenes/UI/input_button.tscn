@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd7bgd5ya1c3s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6b1vb"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_broqf"]
+bg_color = Color(1, 1, 1, 0.392157)
+
+[node name="InputButton" type="Button"]
+custom_minimum_size = Vector2(0, 70)
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6b1vb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_broqf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_broqf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAcion" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "Move Forward"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Action Input" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "Key"
+vertical_alignment = 1

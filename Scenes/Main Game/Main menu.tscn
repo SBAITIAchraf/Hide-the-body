@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d7o7pekdr2kl"]
+[gd_scene load_steps=9 format=3 uid="uid://d7o7pekdr2kl"]
 
 [ext_resource type="PackedScene" uid="uid://wb7bx6k5bb0h" path="res://Scenes/Inspector.tscn" id="1_bigle"]
 [ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="1_eer2f"]
 [ext_resource type="Texture2D" uid="uid://bvlp434ts1jeh" path="res://Addons/kenney_prototype_textures/purple/texture_05.png" id="2_6qgkt"]
+[ext_resource type="PackedScene" uid="uid://djxy7tk4i0q4h" path="res://Scenes/Main.tscn" id="4_fsufy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv51v"]
 bg_color = Color(0.6, 0.6, 0.6, 0.701961)
@@ -36,10 +37,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.0
-offset_top = -98.0
-offset_right = 98.0
-offset_bottom = 98.0
+offset_left = -280.0
+offset_top = -357.0
+offset_right = 280.0
+offset_bottom = 357.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kv51v")
@@ -51,32 +52,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.0
-offset_top = -73.0
-offset_right = 73.0
-offset_bottom = 73.0
+offset_left = -228.0
+offset_top = -304.0
+offset_right = 228.0
+offset_bottom = 304.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 65
 
 [node name="Start" type="Button" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_font_sizes/font_size = 75
 text = "Start"
 
 [node name="Start2" type="Button" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_font_sizes/font_size = 75
 text = "Levels"
 
 [node name="Options" type="Button" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_font_sizes/font_size = 75
 text = "Options"
 
 [node name="Exit" type="Button" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_font_sizes/font_size = 75
 text = "Exit"
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -99,6 +101,8 @@ shape = SubResource("BoxShape3D_m15rr")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216715, -0.122783, -0.289191)
 mesh = SubResource("BoxMesh_0p0yd")
+
+[node name="Main" parent="." instance=ExtResource("4_fsufy")]
 
 [connection signal="pressed" from="Control/Panel/VBoxContainer/Start" to="Control" method="_on_start_pressed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/Exit" to="Control" method="_on_exit_pressed"]
