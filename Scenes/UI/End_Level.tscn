@@ -59,90 +59,90 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -314.0
-offset_top = -213.0
-offset_right = 314.0
-offset_bottom = 213.0
+offset_left = -682.0
+offset_top = -429.0
+offset_right = 682.0
+offset_bottom = 429.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_81fjn")
 
-[node name="Panel" type="Panel" parent="Panel"]
+[node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -289.0
-offset_top = -185.0
-offset_right = 289.0
-offset_bottom = 185.0
+offset_left = -619.0
+offset_top = -385.0
+offset_right = 619.0
+offset_bottom = 385.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_n6yjp")
 
-[node name="Label" type="Label" parent="Panel/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel2"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -36.0
-offset_right = 36.0
-offset_bottom = 23.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 65
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="Result" type="Label" parent="Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 135
 text = "SUCCESS!"
 
-[node name="Label2" type="Label" parent="Panel/Panel"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 11.0
-offset_top = -70.0
-offset_right = 460.0
-offset_bottom = 20.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 44
+[node name="Control" type="MarginContainer" parent="Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 0
+
+[node name="Sus level" type="Label" parent="Panel2/MarginContainer/VBoxContainer/Control"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 119
 text = "sus level : 80%"
 
-[node name="MainMenu" type="Button" parent="Panel/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2/MarginContainer/VBoxContainer"]
 layout_mode = 2
-offset_left = 24.0
-offset_top = 290.0
-offset_right = 129.0
-offset_bottom = 357.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 41
+
+[node name="MainMenu" type="Button" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
 theme_override_styles/normal = SubResource("StyleBoxFlat_dnhoi")
 text = "Menu"
 
-[node name="Restart" type="Button" parent="Panel/Panel"]
+[node name="Control2" type="Control" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-offset_left = 216.0
-offset_top = 290.0
-offset_right = 340.0
-offset_bottom = 357.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 41
+size_flags_horizontal = 3
+
+[node name="Restart" type="Button" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
 theme_override_styles/normal = SubResource("StyleBoxFlat_j7nmq")
 text = "Restart"
 
-[node name="NextLevel" type="Button" parent="Panel/Panel"]
+[node name="Control" type="Control" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-offset_left = 440.0
-offset_top = 285.0
-offset_right = 545.0
-offset_bottom = 352.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 41
+size_flags_horizontal = 3
+
+[node name="NextLevel" type="Button" parent="Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
 theme_override_styles/normal = SubResource("StyleBoxFlat_x7o8k")
 text = "Next"
 
-[connection signal="pressed" from="Panel/Panel/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="Panel/Panel/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Panel/Panel/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Panel2/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Panel2/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel2/MarginContainer/VBoxContainer/HBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]

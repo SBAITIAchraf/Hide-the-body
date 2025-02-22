@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh0vx6b3vs8oe"]
+
+[ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="1_fj0ad"]
+[ext_resource type="PackedScene" uid="uid://loa5ks1s5p45" path="res://Scenes/UI/Settings.tscn" id="2_mn833"]
+[ext_resource type="PackedScene" uid="uid://dp5cou5kph3wg" path="res://Scenes/UI/Levels_list.tscn" id="3_0mb46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv51v"]
+bg_color = Color(0.6, 0.6, 0.6, 0.701961)
+
+[node name="Menue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fj0ad")
+
+[node name="First_page" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -357.0
+offset_right = 280.0
+offset_bottom = 357.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kv51v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="First_page"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -304.0
+offset_right = 228.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 65
+
+[node name="Start" type="Button" parent="First_page/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Start"
+
+[node name="Levels" type="Button" parent="First_page/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Levels"
+
+[node name="Options" type="Button" parent="First_page/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Options"
+
+[node name="Exit" type="Button" parent="First_page/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Exit"
+
+[node name="Settings" parent="." instance=ExtResource("2_mn833")]
+visible = false
+layout_mode = 1
+
+[node name="LevelsList" parent="." instance=ExtResource("3_0mb46")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="First_page/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="First_page/VBoxContainer/Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="First_page/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="First_page/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

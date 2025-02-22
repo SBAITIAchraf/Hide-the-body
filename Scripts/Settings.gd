@@ -53,4 +53,5 @@ func _on_bindings_pressed():
 
 
 func _on_close_pressed():
+	get_parent().first_page.show()
 	hide()

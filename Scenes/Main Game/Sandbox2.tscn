@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://wb4vn1bmt40n"]
+
+[ext_resource type="PackedScene" uid="uid://dnqf18ushkpmm" path="res://Scenes/Player.tscn" id="1_exa3a"]
+[ext_resource type="PackedScene" uid="uid://cg5mu1thbk246" path="res://Models/BodyParts/head_scene.tscn" id="2_q0ovn"]
+[ext_resource type="Texture2D" uid="uid://bvlp434ts1jeh" path="res://Addons/kenney_prototype_textures/purple/texture_05.png" id="3_hiulu"]
+[ext_resource type="PackedScene" uid="uid://wb7bx6k5bb0h" path="res://Scenes/Inspector.tscn" id="4_7hsco"]
+[ext_resource type="PackedScene" uid="uid://chuxf8x16o7vy" path="res://Models/fridge.tscn" id="5_5uq2y"]
+[ext_resource type="PackedScene" uid="uid://blk4kxdgtcntm" path="res://Scenes/UI/End_Level.tscn" id="6_rjirw"]
+[ext_resource type="AudioStream" uid="uid://jv7aw77nxo8h" path="res://Sound/Music/saxo-255974.mp3" id="7_3yj3t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ejq7y"]
+height = 1.78
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_m0shj"]
+vertices = PackedVector3Array(9.28329, 0.877217, 9.21081, 9.28329, 0.877217, 5.71081, 1.28329, 0.877217, 5.71081, -9.71671, 0.877217, 9.21081, -9.71671, 0.877217, -9.78919, -9.71671, 0.877217, 9.21081, 1.03329, 0.877217, 3.71081, 9.28329, 0.877217, -9.78919, -9.71671, 0.877217, 9.21081, 1.28329, 0.877217, 5.71081, 1.03329, 0.877217, 3.71081, 1.03329, 0.877217, 3.71081, 9.28329, 0.877217, 3.46081, 9.28329, 0.877217, -9.78919)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(13, 12, 11)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wf0lq"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6aww"]
+albedo_texture = ExtResource("3_hiulu")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8tog4"]
+material = SubResource("StandardMaterial3D_n6aww")
+size = Vector3(20, 1, 20)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_exa3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23396, 0.500002, 7.90412)
+
+[node name="CollisionShapeCrouch" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, 0)
+shape = SubResource("CapsuleShape3D_ejq7y")
+disabled = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.949842, 0.246127, -0.192931, -0.100018, 0.823602, 0.558279, 0.296306, -0.51098, 0.806909, 2.24611, 10.6532, -3.32935)
+
+[node name="Evidence" type="Node3D" parent="."]
+
+[node name="Head" parent="Evidence" instance=ExtResource("2_q0ovn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06276, 0.997592, 6.9605)
+
+[node name="Nav_Points" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="Nav_Points" groups=["look_point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09077, 1.05013, -5.42424)
+
+[node name="Marker3D2" type="Marker3D" parent="Nav_Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04359, 1.05013, 1.19113)
+
+[node name="Marker3D3" type="Marker3D" parent="Nav_Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9941, 1.05013, -5.96277)
+
+[node name="Marker3D4" type="Marker3D" parent="Nav_Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.19846, 1.05013, 6.6424)
+
+[node name="Marker3D5" type="Marker3D" parent="Nav_Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06195, 1.05013, 6.52664)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_m0shj")
+
+[node name="Ground2" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Ground" type="StaticBody3D" parent="NavigationRegion3D/Ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground2/Ground"]
+shape = SubResource("BoxShape3D_wf0lq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground2/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216715, -0.122783, -0.289191)
+mesh = SubResource("BoxMesh_8tog4")
+
+[node name="Ground3" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(0.374535, 0, 0, 0, 0.0432468, 0.232416, 0, -0.964629, 0.0104198, 5.42355, 2.97542, 4.57229)
+
+[node name="Ground" type="StaticBody3D" parent="NavigationRegion3D/Ground3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground3/Ground"]
+shape = SubResource("BoxShape3D_wf0lq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground3/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216715, -0.122783, -0.289191)
+mesh = SubResource("BoxMesh_8tog4")
+
+[node name="Inspector" parent="." node_paths=PackedStringArray("nav_path", "evidences", "end_level_screen") instance=ExtResource("4_7hsco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.376149, 0.5, -7.01328)
+nav_path = NodePath("../Nav_Points")
+evidences = NodePath("../Evidence")
+end_level_screen = NodePath("../CanvasLayer/EndLevel")
+
+[node name="Fridge" parent="." instance=ExtResource("5_5uq2y")]
+transform = Transform3D(-0.999949, 0, -0.0100879, 0, 1, 0, 0.0100879, 0, -0.999949, 5.58526, 0.5, 7.50301)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndLevel" parent="CanvasLayer" instance=ExtResource("6_rjirw")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3yj3t")

@@ -1,4 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg5mu1thbk246"]
+[gd_scene load_steps=11 format=3 uid="uid://cg5mu1thbk246"]
+
+[ext_resource type="Shader" path="res://Materials/Outline.gdshader" id="1_vwxah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gerw"]
 resource_name = "Material.002"
@@ -68,6 +70,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d7x7v")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwdf2"]
+render_priority = 0
+shader = ExtResource("1_vwxah")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/size = 1.08
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_33v4h"]
 size = Vector3(27.1442, 29.0761, 42.3818)
 
@@ -121,6 +129,12 @@ mass = 0.5
 transform = Transform3D(0.008, 0, 0, 0, -3.49691e-10, -0.008, 0, 0.008, -3.49691e-10, 0.0325539, -0.0782627, 0.083146)
 mesh = SubResource("ArrayMesh_y8m1r")
 skeleton = NodePath("")
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.008, 0, 0, 0, -3.49691e-10, -0.008, 0, 0.008, -3.49691e-10, 0.0330189, -0.0744236, 0.0820348)
+mesh = SubResource("ArrayMesh_y8m1r")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("ShaderMaterial_cwdf2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.008, 0, 0, 0, -3.49691e-10, -0.008, 0, 0.008, -3.49691e-10, 0.0335173, -0.0802627, 0.0656872)

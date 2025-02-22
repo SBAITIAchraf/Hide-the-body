@@ -27,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate:r")
+tracks/1/path = NodePath("First_page:modulate:r")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -38,7 +38,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Panel:modulate:g")
+tracks/2/path = NodePath("First_page:modulate:g")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -49,7 +49,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Panel:modulate:b")
+tracks/3/path = NodePath("First_page:modulate:b")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -60,7 +60,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Panel:modulate:a")
+tracks/4/path = NodePath("First_page:modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -86,7 +86,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate:r")
+tracks/1/path = NodePath("First_page:modulate:r")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -97,7 +97,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Panel:modulate:g")
+tracks/2/path = NodePath("First_page:modulate:g")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -108,7 +108,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Panel:modulate:b")
+tracks/3/path = NodePath("First_page:modulate:b")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -119,7 +119,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Panel:modulate:a")
+tracks/4/path = NodePath("First_page:modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -154,7 +154,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="."]
+[node name="First_page" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -170,7 +170,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7djj4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="First_page"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -186,25 +186,25 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 35
 
-[node name="Resume" type="Button" parent="Panel/VBoxContainer"]
+[node name="Resume" type="Button" parent="First_page/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 75
 text = "Resume"
 
-[node name="Options" type="Button" parent="Panel/VBoxContainer"]
+[node name="Options" type="Button" parent="First_page/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 75
 text = "Option"
 
-[node name="Main Menu" type="Button" parent="Panel/VBoxContainer"]
+[node name="Main Menu" type="Button" parent="First_page/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 75
 text = "Main Menu"
 
-[node name="Exit" type="Button" parent="Panel/VBoxContainer"]
+[node name="Exit" type="Button" parent="First_page/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 75
@@ -219,7 +219,7 @@ libraries = {
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="First_page/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="First_page/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="First_page/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="First_page/VBoxContainer/Exit" to="." method="_on_quit_pressed"]

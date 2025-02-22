@@ -2,6 +2,7 @@ extends Control
 
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
 @onready var settings = $Settings
+@onready var first_page = $First_page
 
 func _ready():
 	settings.hide()
@@ -10,10 +11,12 @@ func _ready():
 
 func resume():
 	get_tree().paused = false
+	settings.hide()
 	anim_player.play_backwards("blur")
 
 func pause():
 	get_tree().paused = true
+	first_page.show()
 	anim_player.play("blur")
 
 func testEsc():
@@ -24,10 +27,12 @@ func testEsc():
 	elif Input.is_action_just_pressed("esc") and get_tree().paused:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		resume()
+		
 		hide()
 
 
 func _on_resume_pressed():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	resume()
 
 
@@ -39,6 +44,7 @@ func _process(delta):
 
 
 func _on_options_pressed():
+	first_page.hide()
 	settings.show()
 
 
