@@ -85,7 +85,7 @@ size = Vector3(0.0837402, 0.0664063, 0.161011)
 
 [node name="Leg" type="RigidBody3D" groups=["Evidence", "Pickable"]]
 collision_layer = 4
-collision_mask = 13
+collision_mask = 5
 script = ExtResource("1_in74i")
 
 [node name="character" type="MeshInstance3D" parent="."]

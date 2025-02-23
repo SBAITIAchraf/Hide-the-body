@@ -67,6 +67,36 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 75
 text = "Exit"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="First_page"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -404.0
+offset_top = -116.0
+offset_right = 404.0
+offset_bottom = -5.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="First_page/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 81
+text = "WHERE'S THE "
+
+[node name="Label2" type="Label" parent="First_page/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 81
+text = "BODY"
+
+[node name="Label3" type="Label" parent="First_page/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 81
+text = "?"
+
 [node name="Settings" parent="." instance=ExtResource("2_mn833")]
 visible = false
 layout_mode = 1
