@@ -40,6 +40,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1qsmi")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ah7a"]
+size = Vector3(0.00878906, 0.602953, 0.00878906)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ln1ai"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x24eb"]
@@ -104,9 +107,6 @@ shadow_mesh = SubResource("ArrayMesh_nlpue")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rvvri"]
 points = PackedVector3Array(-0.0268442, -0.0200073, -0.0868241, -0.0593436, 0.02, -0.414535, -0.493156, -0.0200073, -0.0868241, -0.0270268, -0.0226183, -0.0868241, -0.0268442, -0.0200073, -0.893156, -0.156979, 0.02, -0.414535, -0.0593436, 0.02, -0.565524, -0.493019, -0.0226183, -0.0868241, -0.493156, -0.0200073, -0.893156, -0.0275289, -0.0251801, -0.0868241, -0.0270268, -0.0226183, -0.893156, -0.156979, 0.02, -0.565524, -0.492517, -0.0251801, -0.0868241, -0.493019, -0.0226183, -0.893156, -0.0283961, -0.0276601, -0.0868241, -0.0275289, -0.0251801, -0.893156, -0.49165, -0.0276601, -0.0868241, -0.492517, -0.0251801, -0.893156, -0.0295373, -0.030001, -0.0868241, -0.0283961, -0.0276601, -0.893156, -0.490508, -0.030001, -0.0868241, -0.49165, -0.0276601, -0.893156, -0.0309979, -0.0321782, -0.0868241, -0.0295373, -0.030001, -0.893156, -0.489048, -0.0321782, -0.0868241, -0.490508, -0.030001, -0.893156, -0.0327324, -0.0341425, -0.0868241, -0.0309979, -0.0321782, -0.893156, -0.487313, -0.0341425, -0.0868241, -0.489048, -0.0321782, -0.893156, -0.0346952, -0.0358695, -0.0868241, -0.0327324, -0.0341425, -0.893156, -0.48535, -0.0358695, -0.0868241, -0.487313, -0.0341425, -0.893156, -0.0368861, -0.0373264, -0.0868241, -0.0346952, -0.0358695, -0.893156, -0.48316, -0.0373264, -0.0868241, -0.48535, -0.0358695, -0.893156, -0.039214, -0.0384805, -0.0868241, -0.0368861, -0.0373264, -0.893156, -0.480832, -0.0384805, -0.0868241, -0.48316, -0.0373264, -0.893156, -0.0416789, -0.0393235, -0.0868241, -0.039214, -0.0384805, -0.893156, -0.478367, -0.0393235, -0.0868241, -0.480832, -0.0384805, -0.893156, -0.044235, -0.0398309, -0.0868241, -0.0416789, -0.0393235, -0.893156, -0.475811, -0.0398309, -0.0868241, -0.478367, -0.0393235, -0.893156, -0.0468825, -0.0400028, -0.0868241, -0.187241, -0.062953, -0.464023, -0.187241, -0.063616, -0.48999, -0.044235, -0.0398309, -0.893156, -0.475811, -0.0398309, -0.893156, -0.252834, -0.063616, -0.48999, -0.473163, -0.0400028, -0.0868241, -0.252834, -0.062953, -0.464023, -0.187241, -0.062953, -0.516036, -0.0468825, -0.0400028, -0.893156, -0.473163, -0.0400028, -0.893156, -0.252834, -0.062953, -0.516036)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0ah7a"]
-size = Vector3(0.00878906, 0.602953, 0.00878906)
-
 [node name="Fridge" type="Node3D"]
 transform = Transform3D(1.815, 0, 0, 0, 1.815, 0, 0, 0, 1.815, 0, 0, 0)
 
@@ -123,23 +123,6 @@ transform = Transform3D(2.23, 0, 0, 0, 2.23, 0, 0, 0, 2.23, 0, 0, 0)
 mesh = SubResource("ArrayMesh_v1w1p")
 skeleton = NodePath("")
 
-[node name="kitchenFridgeDoor-rigid" type="RigidBody3D" parent="." groups=["Pickable"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.263511, 0.00121804, 0.000541858)
-collision_layer = 4
-collision_mask = 10
-axis_lock_linear_y = true
-physics_material_override = SubResource("PhysicsMaterial_ln1ai")
-angular_damp = 10.0
-
-[node name="kitchenFridgeDoor-rigid" type="MeshInstance3D" parent="kitchenFridgeDoor-rigid"]
-transform = Transform3D(2.23, 0, 0, 0, 2.23, -7.10543e-15, 0, 7.10543e-15, 2.23, 0, 0, 0)
-mesh = SubResource("ArrayMesh_0t280")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="kitchenFridgeDoor-rigid"]
-transform = Transform3D(2.23, 0, 0, 0, 2.23, -7.10543e-15, 0, 7.10543e-15, 2.23, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_rvvri")
-
 [node name="fridgeDoorFrame" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.862324, 1.07034, -0.0736815)
 collision_layer = 0
@@ -149,18 +132,22 @@ collision_mask = 0
 transform = Transform3D(2.965, 0, 0, 0, 2.965, 0, 0, 0, 2.965, 0.0139853, 0, 0.009693)
 shape = SubResource("BoxShape3D_0ah7a")
 
-[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.826952, 0.367507, -0.0490679)
-node_a = NodePath("../kitchenFridgeDoor-rigid")
-node_b = NodePath("../kitchenFridgeLarge2")
-angular_limit/enable = true
-angular_limit/upper = 0.0
-angular_limit/lower = -2.0944
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.87462, 0, 0.48481, 0, 1, 0, -0.48481, 0, 0.87462, -0.826927, 1.01275, -0.0216962)
 
-[node name="HingeJoint3D2" type="HingeJoint3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.826952, 1.69841, -0.0490679)
-node_a = NodePath("../kitchenFridgeDoor-rigid")
-node_b = NodePath("../kitchenFridgeLarge2")
-angular_limit/enable = true
-angular_limit/upper = 0.0
-angular_limit/lower = -2.0944
+[node name="kitchenFridgeDoor-rigid" type="RigidBody3D" parent="Node3D" groups=["Pickable"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.09044, -1.01154, 0.0222381)
+collision_layer = 4
+collision_mask = 10
+axis_lock_linear_y = true
+physics_material_override = SubResource("PhysicsMaterial_ln1ai")
+angular_damp = 10.0
+
+[node name="kitchenFridgeDoor-rigid" type="MeshInstance3D" parent="Node3D/kitchenFridgeDoor-rigid"]
+transform = Transform3D(2.23, 0, 0, 0, 2.23, -7.10543e-15, 0, 7.10543e-15, 2.23, 0, 0, 0)
+mesh = SubResource("ArrayMesh_0t280")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/kitchenFridgeDoor-rigid"]
+transform = Transform3D(2.23, 0, 0, 0, 2.23, -7.10543e-15, 0, 7.10543e-15, 2.23, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_rvvri")

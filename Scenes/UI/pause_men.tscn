@@ -163,9 +163,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -257.0
-offset_top = -311.0
+offset_top = -317.0
 offset_right = 257.0
-offset_bottom = 311.0
+offset_bottom = 317.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7djj4")
@@ -192,7 +192,13 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 75
 text = "Resume"
 
-[node name="Options" type="Button" parent="First_page/VBoxContainer"]
+[node name="Restart" type="Button" parent="First_page/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 75
+text = "Restart"
+
+[node name="Options2" type="Button" parent="First_page/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 75
@@ -204,12 +210,6 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 75
 text = "Main Menu"
 
-[node name="Exit" type="Button" parent="First_page/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 75
-text = "Exit"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ym3ro")
@@ -220,6 +220,6 @@ visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="First_page/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="First_page/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="First_page/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="First_page/VBoxContainer/Options2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="First_page/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="First_page/VBoxContainer/Exit" to="." method="_on_quit_pressed"]

@@ -85,7 +85,7 @@ size = Vector3(0.144661, 0.0406494, 0.0932312)
 
 [node name="Arm" type="RigidBody3D" groups=["Evidence", "Pickable"]]
 collision_layer = 4
-collision_mask = 13
+collision_mask = 5
 script = ExtResource("1_j0eod")
 
 [node name="character" type="MeshInstance3D" parent="."]

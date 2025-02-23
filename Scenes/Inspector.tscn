@@ -9,7 +9,7 @@ radius = 0.246898
 height = 1.78
 
 [node name="Inspector" type="CharacterBody3D"]
-collision_layer = 2
+collision_layer = 8
 script = ExtResource("1_7e4xh")
 speed = 2.0
 

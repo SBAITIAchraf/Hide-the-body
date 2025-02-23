@@ -51,3 +51,8 @@ func _on_options_pressed():
 func _on_main_menu_pressed():
 	Levels.lvl = 0
 	get_tree().change_scene_to_file(Levels.lvls[Levels.lvl])
+
+
+func _on_restart_pressed():
+	get_tree().paused = false
+	get_tree().reload_current_scene()

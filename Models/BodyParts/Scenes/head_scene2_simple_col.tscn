@@ -123,7 +123,7 @@ size = Vector3(0.249512, 0.350708, 0.297852)
 [node name="Head" type="RigidBody3D" groups=["Evidence", "Pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502013, 0)
 collision_layer = 4
-collision_mask = 13
+collision_mask = 5
 mass = 0.5
 script = ExtResource("1_pur7v")
 

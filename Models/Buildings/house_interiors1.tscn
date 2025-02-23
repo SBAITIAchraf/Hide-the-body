@@ -7144,11 +7144,10 @@ size = Vector3(0.128431, 0.133502, 0.299793)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bbcpm"]
 size = Vector3(0.598013, 0.131715, 0.0693516)
 
-[node name="house interiors" type="Node3D" node_paths=PackedStringArray("inpect_spawn", "spawn_timer", "time_before_spawn")]
+[node name="house interiors" type="Node3D" node_paths=PackedStringArray("inpect_spawn", "spawn_timer")]
 script = ExtResource("1_fhmfv")
 inpect_spawn = NodePath("Spaw_point")
 spawn_timer = NodePath("Inspector_spawn")
-time_before_spawn = NodePath("before_spawn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 0, 2, 0)
@@ -7223,7 +7222,6 @@ skeleton = NodePath("")
 transform = Transform3D(-3.635, 0, -3.17782e-07, 0, 3.635, 0, 3.17782e-07, 0, -3.635, 1.73535, -1.60584, 4.97749)
 
 [node name="Base Sofa" type="CollisionShape3D" parent="NavigationRegion3D/Sofa"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_aeqtq")
 
 [node name="Sofamesh" type="MeshInstance3D" parent="NavigationRegion3D/Sofa"]
@@ -7978,7 +7976,6 @@ mesh = SubResource("ArrayMesh_swg78")
 skeleton = NodePath("")
 
 [node name="group1128296297" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ikibb")
 skeleton = NodePath("")
 
@@ -7988,27 +7985,22 @@ mesh = SubResource("ArrayMesh_duvo0")
 skeleton = NodePath("")
 
 [node name="group359096643" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nt5v8")
 skeleton = NodePath("")
 
 [node name="group1985799205" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rl0sw")
 skeleton = NodePath("")
 
 [node name="group615572843" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_n8o10")
 skeleton = NodePath("")
 
 [node name="group1749033926" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vd5bh")
 skeleton = NodePath("")
 
 [node name="group2086210920" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_827vk")
 skeleton = NodePath("")
 
@@ -8023,232 +8015,186 @@ mesh = SubResource("ArrayMesh_en3lj")
 skeleton = NodePath("")
 
 [node name="group1913084164" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_gh3si")
 skeleton = NodePath("")
 
 [node name="group1138362420" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nwjoe")
 skeleton = NodePath("")
 
 [node name="group2080810550" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_xwexy")
 skeleton = NodePath("")
 
 [node name="group181332527" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_d5vls")
 skeleton = NodePath("")
 
 [node name="group251713216" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_kdbpr")
 skeleton = NodePath("")
 
 [node name="group786249837" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_w4onf")
 skeleton = NodePath("")
 
 [node name="group972674486" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_gn7bm")
 skeleton = NodePath("")
 
 [node name="group1259598371" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_y1xlw")
 skeleton = NodePath("")
 
 [node name="group1383491502" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_e12el")
 skeleton = NodePath("")
 
 [node name="group1535985656" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_57e22")
 skeleton = NodePath("")
 
 [node name="group1306853904" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_7n7na")
 skeleton = NodePath("")
 
 [node name="group759408042" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_81o85")
 skeleton = NodePath("")
 
 [node name="group1646242383" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nw30q")
 skeleton = NodePath("")
 
 [node name="group1425475998" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_goeu8")
 skeleton = NodePath("")
 
 [node name="group1460383392" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rwetg")
 skeleton = NodePath("")
 
 [node name="group930979639" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_mwqwm")
 skeleton = NodePath("")
 
 [node name="group1287973206" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aejq5")
 skeleton = NodePath("")
 
 [node name="group1828483813" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_5t7of")
 skeleton = NodePath("")
 
 [node name="group623371997" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_g41nj")
 skeleton = NodePath("")
 
 [node name="group1826144431" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_c3jfg")
 skeleton = NodePath("")
 
 [node name="group246299276" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_fixrd")
 skeleton = NodePath("")
 
 [node name="group452664685" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ilye6")
 skeleton = NodePath("")
 
 [node name="group316108861" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ybvrf")
 skeleton = NodePath("")
 
 [node name="group1917404111" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_oaxpq")
 skeleton = NodePath("")
 
 [node name="group265276477" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vbwuk")
 skeleton = NodePath("")
 
 [node name="group908436837" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_mfg0h")
 skeleton = NodePath("")
 
 [node name="group1515655314" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_wp35d")
 skeleton = NodePath("")
 
 [node name="group513720045" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ykf03")
 skeleton = NodePath("")
 
 [node name="group1636516817" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rlsyk")
 skeleton = NodePath("")
 
 [node name="group1253599739" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_fdo8h")
 skeleton = NodePath("")
 
 [node name="group1714526199" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nfs5n")
 skeleton = NodePath("")
 
 [node name="group1655549915" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ne6yh")
 skeleton = NodePath("")
 
 [node name="group1415765159" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_h7quj")
 skeleton = NodePath("")
 
 [node name="group2099854700" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rk4m1")
 skeleton = NodePath("")
 
 [node name="group1808543648" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_7hl3d")
 skeleton = NodePath("")
 
 [node name="group1712853314" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_n8082")
 skeleton = NodePath("")
 
 [node name="group74493110" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_p54wh")
 skeleton = NodePath("")
 
 [node name="group58247302" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_lbwe1")
 skeleton = NodePath("")
 
 [node name="group330788645" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_5qr8g")
 skeleton = NodePath("")
 
 [node name="group118787976" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_dj5e1")
 skeleton = NodePath("")
 
 [node name="group1747137889" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rhf41")
 skeleton = NodePath("")
 
 [node name="group696643633" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jqqku")
 skeleton = NodePath("")
 
 [node name="group1804256626" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_50v23")
 skeleton = NodePath("")
 
 [node name="group239619993" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_h2qqn")
 skeleton = NodePath("")
 
 [node name="group929591296" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_o4tkb")
 skeleton = NodePath("")
 
 [node name="group1904967002" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_53kam")
 skeleton = NodePath("")
 

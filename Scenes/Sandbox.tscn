@@ -1,15 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvatlwxkrggom"]
+[gd_scene load_steps=17 format=3 uid="uid://cvatlwxkrggom"]
 
-[ext_resource type="PackedScene" uid="uid://dnqf18ushkpmm" path="res://Scenes/Player.tscn" id="1_ku1kk"]
-[ext_resource type="PackedScene" uid="uid://cg5mu1thbk246" path="res://Models/BodyParts/head_scene.tscn" id="2_xwghs"]
-[ext_resource type="Texture2D" uid="uid://bvlp434ts1jeh" path="res://Addons/kenney_prototype_textures/purple/texture_05.png" id="3_orppc"]
-[ext_resource type="PackedScene" uid="uid://wb7bx6k5bb0h" path="res://Scenes/Inspector.tscn" id="4_mnpkl"]
-[ext_resource type="PackedScene" uid="uid://chuxf8x16o7vy" path="res://Models/fridge.tscn" id="5_fjtq6"]
-[ext_resource type="AudioStream" uid="uid://jv7aw77nxo8h" path="res://Sound/Music/saxo-255974.mp3" id="7_bwvy6"]
-[ext_resource type="PackedScene" uid="uid://4i24y61k57uf" path="res://Scenes/UI/Fail_Level.tscn" id="8_wxqvd"]
-[ext_resource type="PackedScene" uid="uid://b5ayk1icpi8rr" path="res://Models/Buildings/Chair_fisics.tscn" id="9_8qp0i"]
-[ext_resource type="PackedScene" uid="uid://bdah4ibcienjl" path="res://Scenes/UI/Succeed_Level.tscn" id="9_sj28t"]
-[ext_resource type="PackedScene" uid="uid://dk47aax2cr6fg" path="res://Models/BodyParts/Scenes/head_scene2_simple_col.tscn" id="10_amjlb"]
+[ext_resource type="PackedScene" uid="uid://dnqf18ushkpmm" path="res://Scenes/Player.tscn" id="1_dqa1r"]
+[ext_resource type="PackedScene" uid="uid://cg5mu1thbk246" path="res://Models/BodyParts/head_scene.tscn" id="2_qcseb"]
+[ext_resource type="Texture2D" uid="uid://bvlp434ts1jeh" path="res://Addons/kenney_prototype_textures/purple/texture_05.png" id="3_hciyi"]
+[ext_resource type="PackedScene" uid="uid://wb7bx6k5bb0h" path="res://Scenes/Inspector.tscn" id="4_duks5"]
+[ext_resource type="PackedScene" uid="uid://chuxf8x16o7vy" path="res://Models/fridge.tscn" id="5_qy1l3"]
+[ext_resource type="PackedScene" uid="uid://4i24y61k57uf" path="res://Scenes/UI/Fail_Level.tscn" id="6_7wpim"]
+[ext_resource type="PackedScene" uid="uid://bdah4ibcienjl" path="res://Scenes/UI/Succeed_Level.tscn" id="7_qytin"]
+[ext_resource type="AudioStream" uid="uid://jv7aw77nxo8h" path="res://Sound/Music/saxo-255974.mp3" id="8_4fto5"]
+[ext_resource type="PackedScene" uid="uid://b5ayk1icpi8rr" path="res://Models/Buildings/Chair_fisics.tscn" id="9_5jvno"]
+[ext_resource type="PackedScene" uid="uid://dk47aax2cr6fg" path="res://Models/BodyParts/Scenes/head_scene2_simple_col.tscn" id="10_shv4e"]
+[ext_resource type="PackedScene" uid="uid://2pb5h3ygt02v" path="res://Models/drawer_full3_simple_col.tscn" id="11_y6bmt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ejq7y"]
 height = 1.78
@@ -22,7 +23,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 size = Vector3(20, 1, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwd8u"]
-albedo_texture = ExtResource("3_orppc")
+albedo_texture = ExtResource("3_hciyi")
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_8tog4"]
@@ -31,7 +32,7 @@ size = Vector3(20, 1, 20)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_ku1kk")]
+[node name="Player" parent="." instance=ExtResource("1_dqa1r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23396, 0.500002, 7.90412)
 
 [node name="CollisionShapeCrouch" type="CollisionShape3D" parent="Player"]
@@ -44,7 +45,7 @@ transform = Transform3D(0.949842, 0.246127, -0.192931, -0.100018, 0.823602, 0.55
 
 [node name="Evidence" type="Node3D" parent="."]
 
-[node name="Head" parent="Evidence" instance=ExtResource("2_xwghs")]
+[node name="Head" parent="Evidence" instance=ExtResource("2_qcseb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06276, 0.997592, 6.9605)
 
 [node name="Nav_Points" type="Node3D" parent="."]
@@ -90,27 +91,30 @@ shape = SubResource("BoxShape3D_wf0lq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216715, -0.122783, -0.289191)
 mesh = SubResource("BoxMesh_8tog4")
 
-[node name="Inspector" parent="." node_paths=PackedStringArray("nav_path", "evidences", "fail_level_screen", "succeed_level_screen") instance=ExtResource("4_mnpkl")]
+[node name="Inspector" parent="." node_paths=PackedStringArray("nav_path", "evidences", "fail_level_screen", "succeed_level_screen") instance=ExtResource("4_duks5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.376149, 0.5, -7.01328)
 nav_path = NodePath("../Nav_Points")
 evidences = NodePath("../Evidence")
 fail_level_screen = NodePath("../CanvasLayer/FailLevel")
 succeed_level_screen = NodePath("../CanvasLayer/SuccedLevel")
 
-[node name="Fridge" parent="." instance=ExtResource("5_fjtq6")]
+[node name="Fridge" parent="." instance=ExtResource("5_qy1l3")]
 transform = Transform3D(-0.999949, 0, -0.0100879, 0, 1, 0, 0.0100879, 0, -0.999949, 5.58526, 0.5, 7.50301)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="FailLevel" parent="CanvasLayer" instance=ExtResource("8_wxqvd")]
+[node name="FailLevel" parent="CanvasLayer" instance=ExtResource("6_7wpim")]
 
-[node name="SuccedLevel" parent="CanvasLayer" instance=ExtResource("9_sj28t")]
+[node name="SuccedLevel" parent="CanvasLayer" instance=ExtResource("7_qytin")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_bwvy6")
+stream = ExtResource("8_4fto5")
 
-[node name="RootNode" parent="." instance=ExtResource("9_8qp0i")]
+[node name="RootNode" parent="." instance=ExtResource("9_5jvno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50922, 1.40521, 5.50135)
 
-[node name="Head" parent="." instance=ExtResource("10_amjlb")]
+[node name="Head" parent="." instance=ExtResource("10_shv4e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.365507, 1.08013, 7.89907)
+
+[node name="Drawer_full" parent="." instance=ExtResource("11_y6bmt")]
+transform = Transform3D(0.18757, 0, 0.982251, 0, 1, 0, -0.982251, 0, 0.18757, -4.04106, 0.5, 6.91368)
