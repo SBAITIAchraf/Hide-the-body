@@ -40,7 +40,7 @@ class_name UCharacterBody3D
 ## The InputMap action string to be used for jumping
 @export var JUMP : String = "action_jump"
 ## A default value of 0.4 is a good starting point, stay between 0.01 and 1.0
-@export var MOUSE_SENSITIVITY : float = GameSettings.mouse_sensetiv
+@export var MOUSE_SENSITIVITY : float = 0.1
 
 
 
@@ -117,7 +117,7 @@ func _enter_tree():
 		hand = $Head2/Camera/Hand
 
 func _ready():
-	
+	MOUSE_SENSITIVITY = GameSettings.mouse_sensetiv
 	has_grabbed = false
 	last_grab_detected = null
 	
@@ -176,10 +176,10 @@ func _ready():
 			raycast_node.owner = scene'
 	
 	# Only game: Run normal ready logic
-	if !Engine.is_editor_hint():
+'	if !Engine.is_editor_hint():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
-		pass
+		pass'
 
 func _input(event):
 	if !Engine.is_editor_hint():

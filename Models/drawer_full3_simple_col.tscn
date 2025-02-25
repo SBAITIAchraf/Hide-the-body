@@ -1,4 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://2pb5h3ygt02v"]
+[gd_scene load_steps=36 format=3 uid="uid://2pb5h3ygt02v"]
+
+[ext_resource type="Shader" path="res://Materials/Outline.gdshader" id="1_me0mo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlimi"]
 resource_name = "Wood"
@@ -181,8 +183,6 @@ size = Vector3(0.226, 0.0427246, 0.032)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cv68"]
 size = Vector3(0.778606, 0.0180359, 0.676119)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xn22w"]
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_7qo0w"]
 _surfaces = [{
 "aabb": AABB(-0.615147, -0.30621, -0.540546, 1.23029, 0.612506, 1.13373),
@@ -234,6 +234,14 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7qo0w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1j6yu"]
+render_priority = 0
+shader = ExtResource("1_me0mo")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/size = 1.07
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xn22w"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_phb5w"]
 _surfaces = [{
@@ -287,7 +295,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_phb5w")
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_64psp"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_byj7e"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4ovmo"]
 _surfaces = [{
@@ -397,13 +405,15 @@ shape = SubResource("BoxShape3D_718pa")
 [node name="Drawer_door_1-rigid" type="RigidBody3D" parent="." groups=["Pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.708, 1.665, 0)
 collision_layer = 4
-collision_mask = 10
+collision_mask = 8
 mass = 0.5
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Drawer_door_1-rigid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.248675, -0.60528, 0)
 node_a = NodePath("../../Drawer_body2")
 node_b = NodePath("..")
+linear_limit_x/damping = 2.0
+linear_limit_y/damping = 2.0
 linear_limit_z/upper_distance = 0.6
 linear_limit_z/damping = 2.0
 linear_motor_z/enabled = true
@@ -439,16 +449,26 @@ shape = SubResource("BoxShape3D_l0kdn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24357, -0.768351, 0.00227474)
 shape = SubResource("BoxShape3D_3cv68")
 
+[node name="Outline" type="MeshInstance3D" parent="Drawer_door_1-rigid"]
+transform = Transform3D(0.655, 0, 0, 0, 0.655, 2.16715e-15, 0, -2.16715e-15, 0.655, -0.242497, -0.585727, 0)
+visible = false
+mesh = SubResource("ArrayMesh_fme1m")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("ShaderMaterial_1j6yu")
+surface_material_override/1 = SubResource("ShaderMaterial_1j6yu")
+
 [node name="_RigidBody3D_89136" type="RigidBody3D" parent="." groups=["Pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.707643, 0.930685, 0)
 collision_layer = 4
-collision_mask = 10
+collision_mask = 8
 physics_material_override = SubResource("PhysicsMaterial_xn22w")
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="_RigidBody3D_89136"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254308, -0.325788, 0)
 node_a = NodePath("../../Drawer_body2")
 node_b = NodePath("..")
+linear_limit_x/damping = 2.0
+linear_limit_y/damping = 2.0
 linear_limit_z/upper_distance = 0.6
 linear_limit_z/damping = 2.0
 linear_motor_z/enabled = true
@@ -484,15 +504,25 @@ shape = SubResource("BoxShape3D_l0kdn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24363, -0.515303, 0.00227474)
 shape = SubResource("BoxShape3D_3cv68")
 
+[node name="Outline" type="MeshInstance3D" parent="_RigidBody3D_89136"]
+transform = Transform3D(0.655, 0, 0, 0, 0.655, 2.16715e-15, 0, -2.16715e-15, 0.655, 0.253401, -0.334329, 0)
+visible = false
+mesh = SubResource("ArrayMesh_fme1m")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("ShaderMaterial_1j6yu")
+surface_material_override/1 = SubResource("ShaderMaterial_1j6yu")
+
 [node name="@RigidBody3D@89138" type="RigidBody3D" parent="." groups=["Pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.707643, 0.930685, 0)
 collision_layer = 4
-collision_mask = 10
+collision_mask = 8
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="@RigidBody3D@89138"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.248675, -0.342005, 0)
 node_a = NodePath("../../Drawer_body2")
 node_b = NodePath("..")
+linear_limit_x/damping = 2.0
+linear_limit_y/damping = 2.0
 linear_limit_z/upper_distance = 0.6
 linear_limit_z/damping = 2.0
 linear_motor_z/enabled = true
@@ -528,23 +558,40 @@ shape = SubResource("BoxShape3D_l0kdn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.244809, -0.515303, 0.00439803)
 shape = SubResource("BoxShape3D_3cv68")
 
+[node name="Outline" type="MeshInstance3D" parent="@RigidBody3D@89138"]
+transform = Transform3D(0.655, 0, 0, 0, 0.655, 2.16715e-15, 0, -2.16715e-15, 0.655, -0.250096, -0.334329, 0)
+visible = false
+mesh = SubResource("ArrayMesh_fme1m")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("ShaderMaterial_1j6yu")
+surface_material_override/1 = SubResource("ShaderMaterial_1j6yu")
+
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="@RigidBody3D@89137" type="RigidBody3D" parent="Node3D" groups=["Pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.708, 1.665, 0)
 collision_layer = 4
-collision_mask = 10
-physics_material_override = SubResource("PhysicsMaterial_64psp")
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_byj7e")
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Node3D/@RigidBody3D@89137"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.233704, -0.592061, 0)
 node_a = NodePath("../../../Drawer_body2")
 node_b = NodePath("..")
+linear_limit_x/damping = 2.0
+linear_limit_y/damping = 2.0
 linear_limit_z/upper_distance = 0.6
 linear_limit_z/damping = 2.0
 linear_motor_z/enabled = true
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 0.0
+linear_spring_x/damping = 2.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 0.0
+linear_spring_y/damping = 2.0
+linear_spring_z/enabled = true
 linear_spring_z/stiffness = 0.0
-linear_spring_z/damping = 0.0
+linear_spring_z/damping = 2.0
 
 [node name="Drawer_door_1-rigid_002" type="MeshInstance3D" parent="Node3D/@RigidBody3D@89137"]
 transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, 0.24426, -0.574425, 0)
@@ -574,6 +621,14 @@ shape = SubResource("BoxShape3D_l0kdn")
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Node3D/@RigidBody3D@89137"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24363, -0.76856, 0.00227474)
 shape = SubResource("BoxShape3D_3cv68")
+
+[node name="Outline" type="MeshInstance3D" parent="Node3D/@RigidBody3D@89137"]
+transform = Transform3D(0.655, 0, 0, 0, 0.655, 2.16715e-15, 0, -2.16715e-15, 0.655, 0.259846, -0.577599, 0.00618514)
+visible = false
+mesh = SubResource("ArrayMesh_fme1m")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("ShaderMaterial_1j6yu")
+surface_material_override/1 = SubResource("ShaderMaterial_1j6yu")
 
 [node name="Node3D2" type="Node3D" parent="."]
 transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, 0, 0, 0)

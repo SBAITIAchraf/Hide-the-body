@@ -34,7 +34,10 @@ func _create_action_list():
 		
 		var events = InputMap.action_get_events(action)
 		if events.size() > 0:
-			input_action.text = events[0].as_text().trim_suffix(" (Physical)")
+			if GameSettings.input_actions[action]:
+				input_action.text = GameSettings.input_actions[action].as_text().trim_suffix(" (Physical)")
+			else:
+				input_action.text = events[0].as_text().trim_suffix(" (Physical)")
 		else:
 			input_action.text = ""
 		action_list.add_child(button)
@@ -53,8 +56,8 @@ func _input(event):
 			if event is InputEventMouseButton && event.double_click:
 				event.double_click = false
 			
-			InputMap.action_erase_events(action_to_remap)
-			InputMap.action_add_event(action_to_remap, event)
+			GameSettings.input_actions[action_to_remap] = event
+			#InputMap.action_add_event(action_to_remap, event)
 			_update_action_list(remappin_button, event)
 			is_remapping = false
 			action_to_remap = null
@@ -71,4 +74,6 @@ func _on_close_pressed():
 
 
 func _on_default_pressed():
+	for action in input_actions:
+		GameSettings.input_actions[action] = GameSettings.default_input_actions[action]
 	_create_action_list()

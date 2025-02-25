@@ -1,4 +1,4 @@
-[gd_scene load_steps=458 format=3 uid="uid://bwps71mwqsl61"]
+[gd_scene load_steps=457 format=3 uid="uid://bwps71mwqsl61"]
 
 [ext_resource type="Script" path="res://Models/Buildings/Level_set.gd" id="1_kr5qo"]
 [ext_resource type="PackedScene" uid="uid://dnqf18ushkpmm" path="res://Scenes/Player.tscn" id="2_7qhiw"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cmag2f3y6folx" path="res://Scenes/UI/pause_men.tscn" id="8_vagm7"]
 [ext_resource type="PackedScene" uid="uid://dk47aax2cr6fg" path="res://Models/BodyParts/Scenes/head_scene2_simple_col.tscn" id="9_vqpq3"]
 [ext_resource type="PackedScene" uid="uid://ddaqkggtu0rm5" path="res://Models/BodyParts/Scenes/torso2_simple_col.tscn" id="11_ot24u"]
-[ext_resource type="AudioStream" uid="uid://jv7aw77nxo8h" path="res://Sound/Music/saxo-255974.mp3" id="13_h648w"]
 [ext_resource type="PackedScene" uid="uid://2pb5h3ygt02v" path="res://Models/drawer_full3_simple_col.tscn" id="14_0e0tf"]
 [ext_resource type="PackedScene" uid="uid://c3gcd5nyqggda" path="res://Models/Buildings/Ceil_light_model.tscn" id="15_mdfn7"]
 [ext_resource type="PackedScene" uid="uid://cawjlwg3q6ye7" path="res://Models/Buildings/tv.tscn" id="16_gvdyr"]
@@ -8464,11 +8463,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72728, -1.16583, -0.532566)
 [node name="Torso2" parent="Evidence" instance=ExtResource("11_ot24u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24865, -1.16583, -0.540016)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("13_h648w")
-autoplay = true
-
 [node name="Drawer_full" parent="." instance=ExtResource("14_0e0tf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.288137, -1.99102, -2.15669)
 
@@ -8489,12 +8483,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13728, 1.67031, 1.30998)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Ceil Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.887038, 0)
+omni_range = 4096.0
 
 [node name="Ceil Light2" parent="." instance=ExtResource("15_mdfn7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75599, 1.67031, -2.46922)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Ceil Light2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.887038, 0)
+omni_range = 4096.0
 
 [node name="TV" parent="." instance=ExtResource("16_gvdyr")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.285408, -0.539352, -2.13026)

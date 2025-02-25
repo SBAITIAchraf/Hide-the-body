@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dp5cou5kph3wg" path="res://Scenes/UI/Levels_list.tscn" id="3_0mb46"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv51v"]
-bg_color = Color(0.6, 0.6, 0.6, 0.701961)
 
 [node name="Menue" type="Control"]
 layout_mode = 3

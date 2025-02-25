@@ -20,9 +20,8 @@ func _ready():
 
 
 func _on_button_pressed(j: int,scene_path: String):
-	# Loads/changes to the scene associated with the path
 	Levels.lvl = j
-	get_tree().change_scene_to_file(scene_path)
+	get_tree().change_scene_to_file(scene_path.trim_suffix('.remap'))
 
 
 func _on_close_pressed():

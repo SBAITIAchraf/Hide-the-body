@@ -1,4 +1,4 @@
-[gd_scene load_steps=458 format=3 uid="uid://di5j3egiie4y1"]
+[gd_scene load_steps=457 format=3 uid="uid://di5j3egiie4y1"]
 
 [ext_resource type="Script" path="res://Models/Buildings/Level_set.gd" id="1_fc8mj"]
 [ext_resource type="PackedScene" uid="uid://dnqf18ushkpmm" path="res://Scenes/Player.tscn" id="2_q2m58"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cmag2f3y6folx" path="res://Scenes/UI/pause_men.tscn" id="8_kytur"]
 [ext_resource type="PackedScene" uid="uid://4i24y61k57uf" path="res://Scenes/UI/Fail_Level.tscn" id="8_qidpe"]
 [ext_resource type="PackedScene" uid="uid://bdah4ibcienjl" path="res://Scenes/UI/Succeed_Level.tscn" id="9_onijg"]
-[ext_resource type="AudioStream" uid="uid://jv7aw77nxo8h" path="res://Sound/Music/saxo-255974.mp3" id="10_4h7dw"]
 [ext_resource type="PackedScene" uid="uid://2pb5h3ygt02v" path="res://Models/drawer_full3_simple_col.tscn" id="11_l40uc"]
 [ext_resource type="PackedScene" uid="uid://c3gcd5nyqggda" path="res://Models/Buildings/Ceil_light_model.tscn" id="12_ai7cw"]
 [ext_resource type="PackedScene" uid="uid://cawjlwg3q6ye7" path="res://Models/Buildings/tv.tscn" id="13_h4di0"]
@@ -8515,8 +8514,8 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 55
-text = "Quick! There's a dead body in the house. Hide the evidence before the inspector arrives.
-(You can open the fridge and the drawer next to you)."
+text = "Quick! There's a dead body in the house. Hide the evidence before the inspector arrives. You can hide bihind objects, in the fridge or the drawer or you can walk with them behind the inspector. Be creative ;)
+(Interactable objects get highlighted)."
 autowrap_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Start_screen/Panel/VBoxContainer"]
@@ -8599,11 +8598,6 @@ text = "Got it"
 [node name="Head" parent="Evidence" instance=ExtResource("5_s34tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51337, -1.3987, -1.28864)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("10_4h7dw")
-autoplay = true
-
 [node name="Drawer_full" parent="." instance=ExtResource("11_l40uc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.288137, -1.99102, -2.15669)
 
@@ -8624,12 +8618,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13728, 1.67031, 1.30998)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Ceil Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.887038, 0)
+omni_range = 4096.0
 
 [node name="Ceil Light2" parent="." instance=ExtResource("12_ai7cw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75599, 1.67031, -2.46922)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Ceil Light2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.887038, 0)
+omni_range = 4096.0
 
 [node name="TV" parent="." instance=ExtResource("13_h4di0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.285408, -0.539352, -2.13026)

@@ -6,8 +6,8 @@ extends Control
 
 func _ready():
 	settings.hide()
-	hide()
 	anim_player.play("RESET")
+	hide()
 
 func resume():
 	get_tree().paused = false
@@ -34,6 +34,7 @@ func testEsc():
 func _on_resume_pressed():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	resume()
+	hide()
 
 
 func _on_quit_pressed():
@@ -50,7 +51,7 @@ func _on_options_pressed():
 
 func _on_main_menu_pressed():
 	Levels.lvl = 0
-	get_tree().change_scene_to_file(Levels.lvls[Levels.lvl])
+	get_tree().change_scene_to_file(Levels.lvls[Levels.lvl].trim_suffix('.remap'))
 
 
 func _on_restart_pressed():

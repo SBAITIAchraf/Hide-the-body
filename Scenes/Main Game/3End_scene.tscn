@@ -1,5 +1,6 @@
-[gd_scene load_steps=439 format=3 uid="uid://crt13jlpfr5vc"]
+[gd_scene load_steps=440 format=3 uid="uid://crt13jlpfr5vc"]
 
+[ext_resource type="Script" path="res://Scripts/Game/End_scene.gd" id="1_e5s82"]
 [ext_resource type="Script" path="res://Scripts/Shake_camera.gd" id="1_mi3no"]
 [ext_resource type="PackedScene" uid="uid://wb7bx6k5bb0h" path="res://Scenes/Inspector.tscn" id="2_pniqr"]
 [ext_resource type="PackedScene" uid="uid://bsdfyhu83wa4s" path="res://Models/fridge_main_scene.tscn" id="3_m4fys"]
@@ -7104,6 +7105,7 @@ size = Vector3(0.598013, 0.131715, 0.0693516)
 size = Vector3(0.151733, 1, 0.28418)
 
 [node name="MainMenu" type="Node3D"]
+script = ExtResource("1_e5s82")
 
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(0.664996, 0, -0.746847, 0, 1, 0, 0.746847, 0, 0.664996, 2.99248, 2.37513, 1.84205)

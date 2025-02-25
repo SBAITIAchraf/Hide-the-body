@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuhju00yvri1b"]
+
+[ext_resource type="AudioStream" uid="uid://jv7aw77nxo8h" path="res://Sound/Music/saxo-255974.mp3" id="1_w0sn6"]
+
+[node name="BGmusic" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_w0sn6")

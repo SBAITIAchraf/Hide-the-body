@@ -138,7 +138,7 @@ transform = Transform3D(0.87462, 0, 0.48481, 0, 1, 0, -0.48481, 0, 0.87462, -0.8
 [node name="kitchenFridgeDoor-rigid" type="RigidBody3D" parent="Node3D" groups=["Pickable"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.09044, -1.01154, 0.0222381)
 collision_layer = 4
-collision_mask = 10
+collision_mask = 8
 axis_lock_linear_y = true
 physics_material_override = SubResource("PhysicsMaterial_ln1ai")
 angular_damp = 10.0

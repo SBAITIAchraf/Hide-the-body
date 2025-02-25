@@ -13,13 +13,13 @@ func _on_next_level_pressed():
 		Levels.lvl = i
 	else : 
 		Levels.lvl = 0
-	get_tree().change_scene_to_file(Levels.lvls[Levels.lvl])
+	get_tree().change_scene_to_file(Levels.lvls[Levels.lvl].trim_suffix('.remap'))
 
 
 func _on_main_menu_pressed():
 	unpause()
 	Levels.lvl = 0
-	get_tree().change_scene_to_file(Levels.lvls[Levels.lvl])
+	get_tree().change_scene_to_file(Levels.lvls[Levels.lvl].trim_suffix('.remap'))
 
 
 func _on_restart_pressed():

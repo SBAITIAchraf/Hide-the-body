@@ -30,10 +30,15 @@ func _process(delta: float) -> void:
 		_on_spawn_timer_stop()
 
 func _ready():
+	if !BGmusic.playing:
+		BGmusic.playing = true
 	if start_screen:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().paused = true
 		start_screen.show()
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		get_tree().paused = false
 	has_spawned = false
 	succeed_level_screen.hide()
 	fail_level_screen.hide()
